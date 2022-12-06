@@ -7,14 +7,36 @@
 :root{
     --coral:orangered;
     --light:rgb(168, 163, 163);
+    --dark:rgb(44, 43, 43);
 }
 body{
+    background-color: var(--dark);
+
 }
-.bg-coral{
-    background-color: var(--coral);
+a{
+    text-decoration: none;
 }
+
+
 .flex{
     display: flex;
+}
+footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding-block-start: .5rem;
+    z-index: 99;
+
+}
+footer i{
+    margin: .5rem 1rem;
+}
+.fw-300{
+    font-weight: 300;
 }
 .fw-400{
     font-weight: 400;
@@ -27,15 +49,17 @@ header{
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .4);
+    box-shadow: 0 4px 4px gray  ;
+    background-color: var(--dark);
+    z-index: 99;
 }
 header i{
     color: maroon;
 
 }
 main{
-    background: repeating-linear-gradient(45deg, grey, maroon 10%, orangered 18%);
-    height: 100vh;
+
+   
 }
 .text-light{
     color: var(--light);
