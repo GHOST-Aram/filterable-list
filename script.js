@@ -5,7 +5,19 @@ function closeContactForm(form){
 
 //Creat Contact
 function createContact(){
-   
+    const contactInfo = document.querySelectorAll(`form input[type=text]`)
+    const gender = document.querySelector('form select')
+    const contactObj = {
+        name:contactInfo[0].value,
+        phone1:contactInfo[1].value,
+        phone2:contactInfo[2].value,
+        email:contactInfo[3].value,
+        company:contactInfo[4].value,
+        techStack:contactInfo[5].value,
+        twitter:contactInfo[6].value,
+        gender:gender.value
+
+    }
     return contactObj
 }
 //Filter list when user types in searchbox
