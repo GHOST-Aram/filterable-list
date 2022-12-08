@@ -1,5 +1,14 @@
 
+//Clear form
+function clearForm(form){
+    const inputList = document.querySelectorAll(`form input[type=text]`)
+    const gender = document.querySelector('form select')
 
+    inputList.forEach(input =>{
+        input.value=''
+    })
+    gender.value=''
+}
 //Abort creating contact
 function closeContactForm(form){
     form.style.display = 'none'
@@ -61,25 +70,24 @@ function filterContacts(input){
 //open Contact
 
 function openContactForm(form){
+    clearForm(form)
     form.style.display = 'block'
 }
 
 //RENDER CONTACT NAME
 function render(object){
+    const contactList = document.querySelector('#contact-list')
+    const contactGroup = document.createElement('div')
+    contactGroup.classList.add('contact-group')
     const nameNode = createNameNode(object)
-    const contactGroup = document.querySelector('.contact-group')
     contactGroup.appendChild(nameNode)
+    contactList.appendChild(contactGroup)
+
     
 }
 //Save con====tact
 function saveContact(list, contactObj){
     list.push(contactObj)
-    const confirmation = confirm('Create Contact')
-    if(confirmation){
-        alert('Contact successfully created and Saved')
-    }else{
-        alert('Create contact cancelled')
-    }
 }
 
 

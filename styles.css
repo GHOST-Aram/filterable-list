@@ -52,7 +52,7 @@ body,.container > div:first-child input,header{
     border-radius: .25rem;
 
 }
-.contact-list h4{
+#contact-list h4{
     border-bottom: solid 2px gray;
     font-weight: 400;
     margin-block-end: .8rem;
@@ -71,7 +71,7 @@ body,.container > div:first-child input,header{
     padding-bottom: 0.3rem;
 }
 .container > div:first-child input{
-    top: min(100px, 20vh);
+    top: max(130px, 21vh);
     right: 15%;
     left: 15%;
     z-index: 99;
