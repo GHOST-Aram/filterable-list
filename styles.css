@@ -28,7 +28,7 @@ a{
     padding-inline: clamp(2rem,1rem + 5vw,10vw);
     margin: auto;
 }
-.contact-group h4{
+.contacts-list h4{
     border-bottom: solid 2px gray;
     font-weight: 400;
     margin-block-end: .8rem;
