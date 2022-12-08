@@ -41,7 +41,7 @@ function createNameNode(contactObj){
 }
 //Filter list when user types in searchbox
 function filterContacts(input){
-    const contacts = document.querySelectorAll('#contact-list p')
+    const contacts = document.querySelectorAll('.contact-group p')
     const alphabet = document.querySelectorAll('#contact-list h4') 
 
     const regex = new RegExp(input.toLowerCase())
@@ -49,7 +49,6 @@ function filterContacts(input){
     alphabet.forEach(h4=>{
         h4.style.display = 'none'
     })
-    
     contacts.forEach(contact => {
         if(regex.test(contact.textContent.toLowerCase())){
             contact.parentElement.firstElementChild.style.display = 'block'
@@ -84,7 +83,7 @@ function render(alphabet, object){
         }
     })
 }
-//Save con====tact
+//SAVE CONTACT
 function saveContact(list, contactObj){
     list.push(contactObj)
 }

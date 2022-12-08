@@ -50,16 +50,6 @@ body,.container > div:first-child input,header{
     border: none;
     transition: all .25s;
     border-radius: .25rem;
-
-}
-#contact-list h4{
-    border-bottom: solid 2px gray;
-    font-weight: 400;
-    margin-block-end: .8rem;
-    padding-block-end: .4rem;
-    font-size: 1.5rem;
-    display: none;
-    
 }
 .contact-group{
     margin-bottom: 1rem;
@@ -70,6 +60,19 @@ body,.container > div:first-child input,header{
 }
 .contact-group p{
     padding-bottom: 0.3rem;
+}
+#contact-list h4{
+    border-bottom: solid 2px gray;
+    font-weight: 400;
+    margin-block-end: .8rem;
+    padding-block-end: .4rem;
+    font-size: 1.5rem;
+    display: none;
+}
+#contact-list #no-contact{
+    text-align: center;
+    padding-block: calc(30vh - 2rem);
+    font-size: clamp(1.2rem, 1rem + 4vw, 24px);
 }
 .container > div:first-child input{
     top: min(130px, 21vh);
