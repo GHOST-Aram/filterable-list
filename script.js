@@ -1,3 +1,5 @@
+
+
 //Abort creating contact
 function closeContactForm(form){
     form.style.display = 'none'
@@ -55,10 +57,11 @@ function openContactForm(form){
 }
 
 //Save con====tact
-function saveContact(contactObj){
+function saveContact(list, contactObj){
+    list.push(contactObj)
     const confirmation = confirm('Create Contact')
     if(confirmation){
-        alert('Contact successfully created')
+        alert('Contact successfully created and Saved')
     }else{
         alert('Create contact cancelled')
     }
@@ -89,11 +92,11 @@ closebtn.addEventListener('click',()=>{
 
 //saveContact
 const savebtn = document.querySelector('#save-btn')
-
+const contactList = []
 savebtn.addEventListener('click',(event)=>{
     event.preventDefault()
     const contactObj = createContact()
-    saveContact(contactObj)
+    saveContact(contactList, contactObj)
     closeContactForm(contactForm)
 } )
 
