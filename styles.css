@@ -24,7 +24,8 @@ a{
 }
 
 .container{
-    width: 70%;
+    /* width: 70%; */
+    padding-inline: clamp(2rem,1rem + 5vw,10vw);
     margin: auto;
 }
 .contact-group h4{
@@ -95,14 +96,12 @@ input{
     border-bottom: 1px solid grey;
     border-radius: 4px;
     transition: all .25s;
-    /* width: 94%; */
     padding: .5 0 .5 .5;
     position: fixed;
     top: 140px;
     right: 15%;
     left: 15%;
     z-index: 99;
-    /* background-color: var(--dark); */
 
 }
 input:hover{
