@@ -19,12 +19,12 @@
     <main>
         <section>
             <div class="container">
-                <div class="input-area">
+                <div class="search-area">
                     <input type="text" placeholder="Search" class="p-1 ">
                 </div>
                 <div class=" flex list-heading">
                     <h3 class=" fw-400">Contacts</h3>
-                    <button>
+                    <button class="btn">
                         <i class="fa-solid fa-user-plus"></i>
                     </button>
                 </div>
@@ -53,8 +53,50 @@
                         <p>Dkon Kane</p>
                         <p>Drizon Kelly</p>
                     </div>
-
-
+                </div>
+                <div class="add-contact">
+                    <button class="close-btn btn">X</button>
+                    <form action="" method="post" class="flex gap-1">
+                        <div class="flex">
+                            <label for="contact-name">Name</label>
+                            <input type="text" placeholder="Full name" name="contactName" id="contact-name">
+                        </div>
+                        <div class="flex">
+                            <label for="work-phone">Phone</label>
+                            <input type="text" placeholder="+ (code) 7X XXX XXX" name="workPhone" id="work-phone">  
+                        </div>
+                        <div class="flex">
+                            <label for="private-phone">Phone</label>
+                            <input type="text" placeholder="+ (code) 7X XXX XXX" name="privatePhone" id="private-phone">
+                        </div>
+                        <div class="flex">
+                            <label for="email">Email</label>
+                            <input type="text" placeholder="name@host.com" name="email" id="email">
+                        </div>
+                        <div class="flex">
+                            <label for="company-name">Company</label>
+                            <input type="text" placeholder="eg Tesla, Inc" name="companyName" id="company-name">
+                        </div>
+                        
+                        <div class="flex">
+                            <label for="tech-stack">Tech Stack</label>
+                            <input type="text" placeholder="eg FullStack development" name="tech-stack" id="tech-stack">
+                        </div>
+                        <div class="flex">
+                            <label for="twitter-handle">Twitter</label>
+                            <input type="text" placeholder="@twitter_handle" name="twitter-handle" id="twitter-handle">
+                        </div>
+                        <div class="flex">
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender-type">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="lgbtq">LGBTQ</option>
+                            </select>
+                        </div>
+    
+                        <input type="submit" class="btn" value="Save">
+                    </form>
                 </div>
             </div>
         </section>
