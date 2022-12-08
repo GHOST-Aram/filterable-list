@@ -41,8 +41,8 @@ function createNameNode(contactObj){
 }
 //Filter list when user types in searchbox
 function filterContacts(input){
-    const contacts = document.querySelectorAll('.contacts-list p')
-    const alphabet = document.querySelectorAll('.contacts-list h4') 
+    const contacts = document.querySelectorAll('#contact-list p')
+    const alphabet = document.querySelectorAll('#contact-list h4') 
 
     const regex = new RegExp(input,'ig')
 
@@ -52,7 +52,7 @@ function filterContacts(input){
     
     contacts.forEach(contact => {
         if(regex.test(contact.textContent)){
-            contact.parentElement.previousElementSibling.style.display = 'block'
+            contact.parentElement.firstElementChild.style.display = 'block'
             contact.style.display = 'block'
             contact.style.color = 'maroon'
             
