@@ -22,7 +22,24 @@ body{
 a{
     text-decoration: none;
 }
-
+button{
+    padding: 4px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: none;
+    transition: all .25s;
+    position: fixed;
+    bottom: min(4rem, 10vw);
+    right: min(4rem, 10vw);
+}
+button:hover{
+    background-color: grey;
+}
+button i, .list-heading h3{
+    color: maroon;
+}
 .container{
     /* width: 70%; */
     padding-inline: clamp(2rem,1rem + 5vw,10vw);
@@ -125,11 +142,6 @@ input,body,header{
     justify-content: space-between;
     padding-block-end: .25rem;
     
-}
-.list-heading h3,
-.list-heading i{
-    transition: all .25s;
-    color: maroon;
 }
 .list-heading i:hover{
     cursor: pointer;
