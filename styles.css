@@ -52,7 +52,7 @@ body,.container > div:first-child input,header{
     border-radius: .25rem;
 
 }
-.contacts-list h4{
+.contact-list h4{
     border-bottom: solid 2px gray;
     font-weight: 400;
     margin-block-end: .8rem;
@@ -63,8 +63,9 @@ body,.container > div:first-child input,header{
 .contact-group{
     margin-bottom: 1rem;
 }
-.contact-group p, h4{
+.contact-group .contact-name, h4{
     padding-inline-start: 1rem;
+    text-transform: capitalize;
 }
 .contact-group p{
     padding-bottom: 0.3rem;

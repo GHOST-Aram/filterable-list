@@ -17,10 +17,18 @@ function createContact(){
         company:contactInfo[4].value,
         techStack:contactInfo[5].value,
         twitter:contactInfo[6].value,
-        gender:gender.value
+        gender:gender.value,
 
     }
     return contactObj
+}
+
+//Create contact name node
+function createNameNode(contactObj){
+    const nameNode = document.createElement('p') 
+    nameNode.classList.add('contact-name')
+    nameNode.textContent = contactObj.name
+    return nameNode
 }
 //Filter list when user types in searchbox
 function filterContacts(input){
@@ -56,6 +64,13 @@ function openContactForm(form){
     form.style.display = 'block'
 }
 
+//RENDER CONTACT NAME
+function render(object){
+    const nameNode = createNameNode(object)
+    const contactGroup = document.querySelector('.contact-group')
+    contactGroup.appendChild(nameNode)
+    
+}
 //Save con====tact
 function saveContact(list, contactObj){
     list.push(contactObj)
@@ -98,5 +113,6 @@ savebtn.addEventListener('click',(event)=>{
     const contactObj = createContact()
     saveContact(contactList, contactObj)
     closeContactForm(contactForm)
+    render(contactObj)
 } )
 
