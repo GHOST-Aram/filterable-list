@@ -18,7 +18,7 @@
 a{
     text-decoration: none;
 }
-.add-contact{
+#contact-form{
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: .5rem;
     position: fixed;
@@ -27,9 +27,9 @@ a{
     right: 20%;
     top: 17%;
     z-index: 100;
-    /* display: none; */
+    display: none;
 }
-.add-contact .close-btn{
+#contact-form #close-btn{
     position: absolute;
     top:-1rem;
     right:-1rem;
@@ -89,7 +89,7 @@ body,.container > div:first-child input,header{
     bottom: min(4rem, 10vw);
     right: min(4rem, 10vw);
 }
-.container div:nth-child(2) button:hover{
+.container div:nth-child(2) button:hover, .btn:hover{
     background-color: grey;
 }
 .container div:nth-child(2) button i, .list-heading h3{
@@ -195,6 +195,11 @@ input:focus,select:focus{
 }
 .list-heading i:focus{
     transform: scale(1.1);
+}
+option{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1;
 }
 .p-1{
     padding: .5rem;

@@ -1,3 +1,14 @@
+//Abort creating contact
+function closeContactForm(form){
+    form.style.display = 'none'
+}
+
+//Creat Contact
+function createContact(){
+   
+    return contactObj
+}
+//Filter list when user types in searchbox
 function filterContacts(input){
     const contacts = document.querySelectorAll('.contacts-list p')
     const alphabet = document.querySelectorAll('.contacts-list h4') 
@@ -13,7 +24,7 @@ function filterContacts(input){
             contact.parentElement.previousElementSibling.style.display = 'block'
             contact.style.display = 'block'
             contact.style.color = 'maroon'
-
+            
         }
         else{
             contact.style.color = 'grey'
@@ -21,13 +32,56 @@ function filterContacts(input){
         }
         
         if(input.trim()==='')
-            contact.style.color = 'grey'
+        contact.style.color = 'grey'
 
     });
 }
+//open Contact
 
+function openContactForm(form){
+    form.style.display = 'block'
+}
+
+//Save con====tact
+function saveContact(contactObj){
+    const confirmation = confirm('Create Contact')
+    if(confirmation){
+        alert('Contact successfully created')
+    }else{
+        alert('Create contact cancelled')
+    }
+}
+
+
+//filter input
 const searchBox = document.querySelector('input')
 
 searchBox.addEventListener('input', ()=>{
     filterContacts(searchBox.value)
 })
+//Get contact form
+const contactForm = document.querySelector('#contact-form')
+//Add contact
+const addBtn = document.querySelector('#add-contact-btn')
+
+addBtn.addEventListener('click', ()=>{
+    openContactForm(contactForm)
+})
+
+//Abort create contact
+const closebtn = document.querySelector('#close-btn')
+
+closebtn.addEventListener('click',()=>{
+    closeContactForm(contactForm)
+})
+
+//saveContact
+const savebtn = document.querySelector('#save-btn')
+
+savebtn.addEventListener('click',(event)=>{
+    event.preventDefault()
+    const contactObj = createContact()
+    saveContact(contactObj)
+    closeContactForm(contactForm)
+} )
+
