@@ -3,6 +3,12 @@
     font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
+    color: var(--light);
+}
+*::selection{
+    background-color: var(--light);
+    color: maroon;
+
 }
 :root{
     --coral:orangered;
@@ -10,14 +16,34 @@
     --dark:rgb(44, 43, 43);
 }
 body{
-    background-color: var(--dark);
-
+    padding-block-start: 140px;
 }
+
 a{
     text-decoration: none;
 }
 
+.container{
+    width: 70%;
+    margin: auto;
+}
+.contact-group h4{
+    border-bottom: solid 2px gray;
+    font-weight: 400;
+    margin-block-end: .8rem;
+    padding-block-end: .4rem;
+    font-size: 1.5rem;
 
+}
+.contact-group{
+    margin-bottom: 1rem;
+}
+.contact-group p, h4{
+    padding-inline-start: 1rem;
+}
+.contact-group p{
+    padding-bottom: 0.3rem;
+}
 .flex{
     display: flex;
 }
@@ -35,6 +61,9 @@ footer{
 footer i{
     margin: .5rem 1rem;
 }
+.font-sm{
+    font-size: 14px;
+}
 .fw-300{
     font-weight: 300;
 }
@@ -42,25 +71,74 @@ footer i{
     font-weight: 400;
 }
 header{
-    padding-block: 1.5rem;
+    flex-direction: column;
+    padding: 1rem 0 1.5rem 0;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 4px 4px gray  ;
-    background-color: var(--dark);
+    box-shadow: 0 4px 4px gray;
     z-index: 99;
 }
+
 header i{
     color: maroon;
+}
+header i:hover, header h1:hover{
+    cursor: pointer;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    border-radius: 4px;
+    transition: all .25s;
+    /* width: 94%; */
+    padding: .5 0 .5 .5;
+    position: fixed;
+    top: 140px;
+    right: 15%;
+    left: 15%;
+    z-index: 99;
+    /* background-color: var(--dark); */
 
 }
-main{
-
-   
+input:hover{
+    box-shadow: 0 4px 2px gray;
 }
-.text-light{
+input:focus{
+    outline: none;
+
+}
+input,body,header{
+    background-color: var(--dark);
+}
+.input-area{
+    width: 100%;
+    margin: auto;
+}
+.list-heading{
+    width: 100%;
+    margin: 3rem 0 1rem 0;
+    border-bottom: solid 2px maroon;
+    justify-content: space-between;
+    padding-block-end: .25rem;
+    
+}
+.list-heading h3,
+.list-heading i{
+    transition: all .25s;
+    color: maroon;
+}
+.list-heading i:hover{
+    cursor: pointer;
     color: var(--light);
+}
+.list-heading i:focus{
+    transform: scale(1.1);
+}
+.p-1{
+    padding: .5rem;
 }
