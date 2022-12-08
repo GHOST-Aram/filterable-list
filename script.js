@@ -44,24 +44,22 @@ function filterContacts(input){
     const contacts = document.querySelectorAll('#contact-list p')
     const alphabet = document.querySelectorAll('#contact-list h4') 
 
-    const regex = new RegExp(input,'ig')
+    const regex = new RegExp(input.toLowerCase())
 
     alphabet.forEach(h4=>{
         h4.style.display = 'none'
     })
     
     contacts.forEach(contact => {
-        if(regex.test(contact.textContent)){
+        if(regex.test(contact.textContent.toLowerCase())){
             contact.parentElement.firstElementChild.style.display = 'block'
             contact.style.display = 'block'
             contact.style.color = 'maroon'
-            
         }
         else{
             contact.style.color = 'grey'
             contact.style.display = 'none'
         }
-        
         if(input.trim()==='')
         contact.style.color = 'grey'
 
