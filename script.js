@@ -1,7 +1,7 @@
 
 //Clear form
 function clearForm(form){
-    const inputList = document.querySelectorAll(`form input[type=text]`)
+    const inputList = form.querySelectorAll(`input[type=text]`)
     const gender = document.querySelector('form select')
 
     inputList.forEach(input =>{
@@ -75,15 +75,16 @@ function openContactForm(form){
 }
 
 //RENDER CONTACT NAME
-function render(object){
-    const contactList = document.querySelector('#contact-list')
-    const contactGroup = document.createElement('div')
-    contactGroup.classList.add('contact-group')
+function render(alphabet, object){
     const nameNode = createNameNode(object)
-    contactGroup.appendChild(nameNode)
-    contactList.appendChild(contactGroup)
+    const firstLetter = nameNode.textContent.trim().charAt(0).toUpperCase()
+    alphabet.forEach(letter=>{
 
-    
+        if(letter.textContent === firstLetter){
+            letter.style.display = 'block'
+            letter.parentElement.appendChild(nameNode)
+        }
+    })
 }
 //Save con====tact
 function saveContact(list, contactObj){
@@ -93,34 +94,36 @@ function saveContact(list, contactObj){
 
 //filter input
 const searchBox = document.querySelector('input')
+//Get contact form
+const contactForm = document.querySelector('#contact-form')
+const closebtn = document.querySelector('#close-btn')
+const addBtn = document.querySelector('#add-contact-btn')
+const savebtn = document.querySelector('#save-btn')
+const alphabetHeadings = document.querySelectorAll('#contact-list h4')
+const contactList = []
 
+//Filter
 searchBox.addEventListener('input', ()=>{
     filterContacts(searchBox.value)
 })
-//Get contact form
-const contactForm = document.querySelector('#contact-form')
-//Add contact
-const addBtn = document.querySelector('#add-contact-btn')
 
+//Add contact
 addBtn.addEventListener('click', ()=>{
     openContactForm(contactForm)
 })
 
-//Abort create contact
-const closebtn = document.querySelector('#close-btn')
 
+//Close contact form
 closebtn.addEventListener('click',()=>{
     closeContactForm(contactForm)
 })
 
 //saveContact
-const savebtn = document.querySelector('#save-btn')
-const contactList = []
 savebtn.addEventListener('click',(event)=>{
     event.preventDefault()
     const contactObj = createContact()
     saveContact(contactList, contactObj)
     closeContactForm(contactForm)
-    render(contactObj)
+    render(alphabetHeadings, contactObj)
 } )
 

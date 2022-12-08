@@ -58,6 +58,7 @@ body,.container > div:first-child input,header{
     margin-block-end: .8rem;
     padding-block-end: .4rem;
     font-size: 1.5rem;
+    display: none;
     
 }
 .contact-group{
@@ -71,7 +72,7 @@ body,.container > div:first-child input,header{
     padding-bottom: 0.3rem;
 }
 .container > div:first-child input{
-    top: max(130px, 21vh);
+    top: min(130px, 21vh);
     right: 15%;
     left: 15%;
     z-index: 99;
