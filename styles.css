@@ -73,6 +73,7 @@ body,.container > div:first-child input,header{
     text-align: center;
     padding-block: calc(30vh - 2rem);
     font-size: clamp(1.2rem, 1rem + 4vw, 24px);
+    display: none;
 }
 .container > div:first-child input{
     top: min(130px, 21vh);

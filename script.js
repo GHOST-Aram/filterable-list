@@ -86,6 +86,7 @@ function render(alphabet, object){
 //SAVE CONTACT
 function saveContact(list, contactObj){
     list.push(contactObj)
+    window.localStorage.setItem('contactList', list)
 }
 
 
@@ -97,8 +98,20 @@ const closebtn = document.querySelector('#close-btn')
 const addBtn = document.querySelector('#add-contact-btn')
 const savebtn = document.querySelector('#save-btn')
 const alphabetHeadings = document.querySelectorAll('#contact-list h4')
-const contactList = []
 
+//Initialize contactList
+//Use local storage
+let contactList = []
+const local = JSON.parse(window.localStorage.getItem('contactList'))
+if(Array.isArray(local))
+    contactList = local
+else
+    window.localStorage.setItem('contactList', JSON.stringify(contactList))
+if(contactList.length < 1){
+    const noContactText =  document.querySelector('#no-contact')
+    noContactText.style.display = 'block'
+}
+console.log(contactList)
 //Filter
 searchBox.addEventListener('input', ()=>{
     filterContacts(searchBox.value)
