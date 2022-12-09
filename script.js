@@ -150,6 +150,6 @@ savebtn.addEventListener('click',(event)=>{
     const contactObj = createContact()
     saveContact(contactList, contactObj)
     closeContactForm(contactForm)
-    render(alphabet, contactObj)
+    render(contactObj)
 } )
 
