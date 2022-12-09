@@ -45,12 +45,29 @@ function createContact(){
     }
     return contactObj
 }
+//Create contact node
+function createContactDiv(nameNode){
+    const contactDiv = document.createElement('div')
+    contactDiv.classList.add('contact','flex')
 
+    const icon = document.createElement('i')
+    icon.className = 'fa-solid fa-ellipsis-vertical' 
+
+    const btn = document.createElement('button')
+    btn.setAttribute('id', 'details-btn')
+    btn.appendChild(icon)
+
+    contactDiv.appendChild(nameNode)
+    contactDiv.appendChild(btn)
+
+    return contactDiv
+}
 //Create contact name node
 function createNameNode(contactObj){
-    const nameNode = document.createElement('p') 
+    const nameNode = document.createElement('p')
     nameNode.classList.add('contact-name')
     nameNode.textContent = contactObj.name
+
     return nameNode
 }
 //RENDER CONTACT LIST
@@ -94,11 +111,15 @@ function openContactForm(form){
 function render(object){
     const nameNode = createNameNode(object)
     const firstLetter = nameNode.textContent.trim().charAt(0).toUpperCase()
+    
+    //Render aplhabetically
     alphabet.forEach(letter=>{
-
+        
         if(letter.textContent === firstLetter){
             letter.style.display = 'block'
-            letter.parentElement.appendChild(nameNode)
+            const contactDiv = createContactDiv(nameNode)
+            contactDiv.prepend(nameNode)
+            letter.parentElement.appendChild(contactDiv)
         }
     })
 }

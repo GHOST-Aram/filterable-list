@@ -18,6 +18,41 @@
 a{
     text-decoration: none;
 }
+#add-contact-btn{
+    padding: 4px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    bottom: min(4rem, 10vw);
+    right: min(4rem, 10vw);
+}
+#add-contact-btn:hover,#details-btn:hover, .btn:hover{
+    background-color: rgba(0, 0, 0, 0.4); 
+    cursor: pointer;
+}
+body{
+    
+    padding-block-start: 140px;
+}
+body,.container > div:first-child input,header{
+    background-color: var(--dark);
+}
+.btn{
+    background-color: maroon;
+    padding: .6rem;
+    border: none;
+    transition: all .25s;
+    border-radius: .25rem;
+}
+button i, .list-heading h3,
+header i,input:hover::placeholder{
+    color: maroon;
+}
+button, .btn:focus{
+    outline: none;
+    transform: scale(1.1);
+}
 #contact-form{
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: .5rem;
@@ -37,19 +72,12 @@ a{
     height: 40px;
     border-radius: 20px;
 }
-body{
-
-    padding-block-start: 140px;
+#contact-form #close-btn i{
+    color: grey;
 }
-body,.container > div:first-child input,header{
-    background-color: var(--dark);
-}
-.btn{
-    background-color: maroon;
-    padding: .6rem;
-    border: none;
-    transition: all .25s;
-    border-radius: .25rem;
+.contact{
+    justify-content: space-between;
+    align-items: center;
 }
 .contact-group{
     margin-bottom: 1rem;
@@ -86,22 +114,17 @@ body,.container > div:first-child input,header{
     padding-inline: clamp(2rem,1rem + 5vw,10vw);
     margin: auto;
 }
-.container div:nth-child(2) button{
-    padding: 4px;
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.4); 
-    bottom: min(4rem, 10vw);
-    right: min(4rem, 10vw);
-}
-.container div:nth-child(2) button:hover, .btn:hover{
-    background-color: grey;
-}
-.container div:nth-child(2) button i, .list-heading h3{
-    color: maroon;
-}
 
+#details-btn{
+    background-color: transparent;
+    border: none;
+    padding: .3rem .65rem;
+    border-radius: .9rem;
+    transition: all .25s;
+}
+#details-btn i{
+    color: grey;
+}
 .flex{
     display: flex;
 }
@@ -145,7 +168,7 @@ form div{
 .gap-1{
     gap: 1rem;
 }
-header,.container > div:first-child input, .container div:nth-child(2) button, footer{
+header,.container > div:first-child input, #add-contact-btn, footer{
     position: fixed;
 }
 header{
@@ -159,13 +182,10 @@ header{
     box-shadow: 0 4px 4px gray;
     z-index: 99;
 }
-
-header i{
-    color: maroon;
-}
 header i:hover, header h1:hover{
     cursor: pointer;
 }
+
 input,select{
     background-color: transparent;
     border: none;
@@ -174,9 +194,6 @@ input,select{
     transition: all .25s;
     padding: .5rem 0 .5rem .5rem;
 
-}
-input:hover::placeholder{
-    color: maroon;
 }
 input:focus,select:focus{
     box-shadow: 0 1px 0 maroon;
@@ -195,12 +212,8 @@ input:focus,select:focus{
     padding-block-end: .25rem;
     
 }
-.list-heading i:hover{
-    cursor: pointer;
-    color: var(--light);
-}
-.list-heading i:focus{
-    transform: scale(1.1);
+main i{
+    font-size: 1rem;
 }
 option{
     color: white;
