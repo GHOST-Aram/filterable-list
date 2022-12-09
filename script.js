@@ -87,17 +87,20 @@ function filterContacts(input){
     })
     contacts.forEach(contact => {
         if(regex.test(contact.textContent.toLowerCase())){
-            contact.parentElement.firstElementChild.style.display = 'block'
-            contact.style.display = 'block'
+            contact.parentElement.parentElement.firstElementChild.style.display = 'block'
+            contact.parentElement.style.display = 'flex'
             contact.style.color = 'maroon'
+            contact.nextElementSibling.firstChild.style.color = 'maroon'
         }
         else{
-            contact.style.color = 'grey'
-            contact.style.display = 'none'
+            contact.parentElement.style.color = 'grey'
+            contact.nextElementSibling.firstChild.style.color = 'grey'
+            contact.parentElement.style.display = 'none'
         }
-        if(input.trim()==='')
-        contact.style.color = 'grey'
-
+        if(input.trim()===''){
+            contact.style.color = 'grey'
+            contact.nextElementSibling.firstChild.style.color = 'grey'
+        }
     });
 }
 //open Contact
