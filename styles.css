@@ -23,9 +23,12 @@ a{
     height: 40px;
     width: 40px;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.4); 
-    bottom: min(4rem, 10vw);
-    right: min(4rem, 10vw);
+    bottom: max(4rem, 10vw);
+    right: max(4rem, 10vw);
+}
+#add-contact-btn i{
+    font-size: clamp(1.5rem, 16px + 2vw, 2rem);
+    font-weight: 700;
 }
 #add-contact-btn:hover,#details-btn:hover, .btn:hover{
     background-color: rgba(0, 0, 0, 0.4); 
@@ -38,8 +41,10 @@ body{
 body,.container > div:first-child input,header{
     background-color: var(--dark);
 }
+.btn , #details-btn, input, #save-btn:hover, select{
+    background-color: transparent;
+}
 .btn{
-    background-color: maroon;
     padding: .6rem;
     border: none;
     transition: all .25s;
@@ -65,19 +70,23 @@ button, .btn:focus{
     display: none;
 }
 #contact-form #close-btn{
-    position: absolute;
-    top:-1rem;
-    right:-1rem;
+    top: -0.5em;
+    right: -0.5em;
     width: 40px;
     height: 40px;
     border-radius: 20px;
 }
-#contact-form #close-btn i{
-    color: grey;
+#contact-form #close-btn, #manager-icons{
+    position: absolute;
 }
 .contact{
+    background: rgba(0, 0, 0, 0.2);
     justify-content: space-between;
     align-items: center;
+    padding: .5rem;
+    position: relative;
+    margin-block: max(.5rem, 1vh);
+    border-radius: .4rem;
 }
 .contact-group{
     margin-bottom: 1rem;
@@ -116,7 +125,6 @@ button, .btn:focus{
 }
 
 #details-btn{
-    background-color: transparent;
     border: none;
     padding: .3rem .65rem;
     border-radius: .9rem;
@@ -187,7 +195,6 @@ header i:hover, header h1:hover{
 }
 
 input,select{
-    background-color: transparent;
     border: none;
     border-bottom: 1px solid grey;
     border-radius: 4px;
@@ -215,6 +222,10 @@ input:focus,select:focus{
 main i{
     font-size: 1rem;
 }
+#manager-icons{
+    right: min(15%, 2.5rem);
+    display: none;
+}
 option{
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
@@ -222,4 +233,7 @@ option{
 }
 .p-1{
     padding: .5rem;
+}
+#save-btn{
+    background-color: maroon;
 }

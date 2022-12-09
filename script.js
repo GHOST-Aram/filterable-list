@@ -87,7 +87,7 @@ function creatManagerIcons(){
         const btn = document.createElement('button')
         const icon = document.createElement('i')
 
-        btn.className = `manager-btn`
+        btn.className = `manager-btn btn`
 
         if(index===0){
             icon.className = 'fa-solid manager-icon fa-eye'
