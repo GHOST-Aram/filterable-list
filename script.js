@@ -56,7 +56,7 @@ function createContactDiv(nameNode){
 
     //vertical elipsis btn
     const btn = document.createElement('button')
-    btn.setAttribute('id', 'details-btn')
+    btn.classList.add('details-btn')
     btn.appendChild(icon)
 
     //manager icons view, edit & delete icons
@@ -82,7 +82,7 @@ function createNameNode(contactObj){
 //View edit delete
 function creatManagerIcons(){
     const btnsDiv = document.createElement('div')
-    btnsDiv.id = 'manager-icons'
+    btnsDiv.className = 'manager-icons'
     for(let index = 0; index < 3; index++){
         const btn = document.createElement('button')
         const icon = document.createElement('i')
@@ -112,6 +112,7 @@ function displayContacts(contactList){
         render(contact)
     })
 }
+
 //Filter list when user types in searchbox
 function filterContacts(input){
     const contacts = document.querySelectorAll('.contact-group p')
@@ -169,6 +170,7 @@ function saveContact(list, contactObj){
     window.localStorage.setItem('contacts', JSON.stringify(list))
 }
 
+/*--------------------------------------------------------------------*/
 
 //filter input
 const searchBox = document.querySelector('input')
@@ -179,14 +181,30 @@ const addBtn = document.querySelector('#add-contact-btn')
 const savebtn = document.querySelector('#save-btn')
 
 
-//Initialize contactList
-//Use local storage
 let contactList = []
 
 //On load
 window.addEventListener('load', () => {
+    //Initialize contactList
+    //Use local storage
+
     contactList = checkLocalStorage()
     displayContacts(contactList)
+
+
+    //Manage Contacts button
+    const detailsBtns = document.querySelectorAll('.details-btn')
+    console.log(detailsBtns)
+    detailsBtns.forEach(btn=>{
+    btn.addEventListener('click', (event) =>{
+        const managerDivs = document.querySelectorAll('.manager-icons')
+        managerDivs.forEach(managerDiv=>{
+        if(managerDiv === event.target.nextElementSibling){
+            managerDiv.style.display = 'block'
+        }
+    })
+    })
+})
 })
 //Filter
 searchBox.addEventListener('input', ()=>{
@@ -213,3 +231,6 @@ savebtn.addEventListener('click',(event)=>{
     render(contactObj)
 } )
 
+window.addEventListener('load', ()=>{
+    
+})

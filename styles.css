@@ -30,7 +30,7 @@ a{
     font-size: clamp(1.5rem, 16px + 2vw, 2rem);
     font-weight: 700;
 }
-#add-contact-btn:hover,#details-btn:hover, .btn:hover{
+#add-contact-btn:hover,.details-btn:hover, .btn:hover{
     background-color: rgba(0, 0, 0, 0.4); 
     cursor: pointer;
 }
@@ -41,7 +41,7 @@ body{
 body,.container > div:first-child input,header{
     background-color: var(--dark);
 }
-.btn , #details-btn, input, #save-btn:hover, select{
+.btn , .details-btn, input, #save-btn:hover, select{
     background-color: transparent;
 }
 .btn{
@@ -76,7 +76,7 @@ button, .btn:focus{
     height: 40px;
     border-radius: 20px;
 }
-#contact-form #close-btn, #manager-icons{
+#contact-form #close-btn, .manager-icons{
     position: absolute;
 }
 .contact{
@@ -124,13 +124,13 @@ button, .btn:focus{
     margin: auto;
 }
 
-#details-btn{
+.details-btn{
     border: none;
     padding: .3rem .65rem;
     border-radius: .9rem;
     transition: all .25s;
 }
-#details-btn i{
+.details-btn i{
     color: grey;
 }
 .flex{
@@ -222,7 +222,7 @@ input:focus,select:focus{
 main i{
     font-size: 1rem;
 }
-#manager-icons{
+.manager-icons{
     right: min(15%, 2.5rem);
     display: none;
 }
