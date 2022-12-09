@@ -1,9 +1,23 @@
+const alphabet = document.querySelectorAll('#contact-list h4') 
 
+//Check local storage
+function checkLocalStorage(){
+        const local = JSON.parse(window.localStorage.getItem('contacts'))
+    if(Array.isArray(local))
+        contactList = local
+    else
+        window.localStorage.setItem('contacts', JSON.stringify(contactList))
+    if(contactList.length < 1){
+        const noContactText =  document.querySelector('#no-contact')
+        noContactText.style.display = 'block'
+    }
+    return contactList
+}
 //Clear form
 function clearForm(form){
     const inputList = form.querySelectorAll(`input[type=text]`)
     const gender = document.querySelector('form select')
-
+    
     inputList.forEach(input =>{
         input.value=''
     })
@@ -27,7 +41,7 @@ function createContact(){
         techStack:contactInfo[5].value,
         twitter:contactInfo[6].value,
         gender:gender.value,
-
+        
     }
     return contactObj
 }
@@ -39,10 +53,15 @@ function createNameNode(contactObj){
     nameNode.textContent = contactObj.name
     return nameNode
 }
+//RENDER CONTACT LIST
+function displayContacts(contactList){
+    contactList.forEach(contact=>{
+        render(contact)
+    })
+}
 //Filter list when user types in searchbox
 function filterContacts(input){
     const contacts = document.querySelectorAll('.contact-group p')
-    const alphabet = document.querySelectorAll('#contact-list h4') 
 
     const regex = new RegExp(input.toLowerCase())
 
@@ -72,7 +91,7 @@ function openContactForm(form){
 }
 
 //RENDER CONTACT NAME
-function render(alphabet, object){
+function render(object){
     const nameNode = createNameNode(object)
     const firstLetter = nameNode.textContent.trim().charAt(0).toUpperCase()
     alphabet.forEach(letter=>{
@@ -83,10 +102,11 @@ function render(alphabet, object){
         }
     })
 }
+
 //SAVE CONTACT
 function saveContact(list, contactObj){
     list.push(contactObj)
-    window.localStorage.setItem('contactList', list)
+    window.localStorage.setItem('contacts', JSON.stringify(list))
 }
 
 
@@ -97,21 +117,17 @@ const contactForm = document.querySelector('#contact-form')
 const closebtn = document.querySelector('#close-btn')
 const addBtn = document.querySelector('#add-contact-btn')
 const savebtn = document.querySelector('#save-btn')
-const alphabetHeadings = document.querySelectorAll('#contact-list h4')
+
 
 //Initialize contactList
 //Use local storage
 let contactList = []
-const local = JSON.parse(window.localStorage.getItem('contactList'))
-if(Array.isArray(local))
-    contactList = local
-else
-    window.localStorage.setItem('contactList', JSON.stringify(contactList))
-if(contactList.length < 1){
-    const noContactText =  document.querySelector('#no-contact')
-    noContactText.style.display = 'block'
-}
-console.log(contactList)
+
+//On load
+window.addEventListener('load', () => {
+    contactList = checkLocalStorage()
+    displayContacts(contactList)
+})
 //Filter
 searchBox.addEventListener('input', ()=>{
     filterContacts(searchBox.value)
@@ -134,6 +150,6 @@ savebtn.addEventListener('click',(event)=>{
     const contactObj = createContact()
     saveContact(contactList, contactObj)
     closeContactForm(contactForm)
-    render(alphabetHeadings, contactObj)
+    render(alphabet, contactObj)
 } )
 
