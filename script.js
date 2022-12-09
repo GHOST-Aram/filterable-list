@@ -192,16 +192,19 @@ window.addEventListener('load', () => {
     displayContacts(contactList)
 
 
-    //Manage Contacts button
+    //Manage Contacts button-display view, edit, delete icons here
     const detailsBtns = document.querySelectorAll('.details-btn')
-    console.log(detailsBtns)
+    const managerDivs = document.querySelectorAll('.manager-icons')
     detailsBtns.forEach(btn=>{
-    btn.addEventListener('click', (event) =>{
-        const managerDivs = document.querySelectorAll('.manager-icons')
-        managerDivs.forEach(managerDiv=>{
-        if(managerDiv === event.target.nextElementSibling){
-            managerDiv.style.display = 'block'
-        }
+        btn.addEventListener('click', (event) =>{
+            managerDivs.forEach(managerDiv=>{
+            if(managerDiv === event.target.nextElementSibling){
+                if(managerDiv.style.display === 'none')
+                    managerDiv.style.display = 'block'
+                else
+                    managerDiv.style.display = 'none'
+                
+            }
     })
     })
 })
