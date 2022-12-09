@@ -50,15 +50,21 @@ function createContactDiv(nameNode){
     const contactDiv = document.createElement('div')
     contactDiv.classList.add('contact','flex')
 
+    // vertical elipsis icon
     const icon = document.createElement('i')
-    icon.className = 'fa-solid fa-ellipsis-vertical' 
+    icon.className = 'fa-solid fa-ellipsis-vertical'
 
+    //vertical elipsis btn
     const btn = document.createElement('button')
     btn.setAttribute('id', 'details-btn')
     btn.appendChild(icon)
 
+    //manager icons view, edit & delete icons
+    const managerDiv = creatManagerIcons()
+
     contactDiv.appendChild(nameNode)
     contactDiv.appendChild(btn)
+    contactDiv.appendChild(managerDiv)
 
     return contactDiv
 }
@@ -69,6 +75,36 @@ function createNameNode(contactObj){
     nameNode.textContent = contactObj.name
 
     return nameNode
+}
+
+//CONTACT DETAILS BUTTONs
+//Triggered by the vertical ellipsis
+//View edit delete
+function creatManagerIcons(){
+    const btnsDiv = document.createElement('div')
+    btnsDiv.id = 'manager-icons'
+    for(let index = 0; index < 3; index++){
+        const btn = document.createElement('button')
+        const icon = document.createElement('i')
+
+        btn.className = `manager-btn`
+
+        if(index===0){
+            icon.className = 'fa-solid manager-icon fa-eye'
+            btn.id = `view-btn`
+        }
+        if(index===1){
+            icon.className = 'fa-solid manager-icon fa-pen'
+            btn.id = `edit-btn`
+        }
+        if(index===2){
+            icon.className = 'fa-solid manager-icon fa-trash-can'
+            btn.id = `delete-btn`
+        }
+        btn.appendChild(icon)
+        btnsDiv.appendChild(btn)
+    }
+    return btnsDiv
 }
 //RENDER CONTACT LIST
 function displayContacts(contactList){
