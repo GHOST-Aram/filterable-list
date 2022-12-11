@@ -68,6 +68,55 @@ function createContactDiv(nameNode){
 
     return contactDiv
 }
+//Create contact detail
+function createDetails(contact){
+    const detailsDiv = document.createElement('div')
+    detailsDiv.className = 'contact-details'
+    
+        
+    if(contact.hasOwnProperty("phone1")){
+        let p = document.createElement('p')
+        p.textContent = "Phone " + contact.phone1
+        detailsDiv.appendChild(p)
+    }
+        
+    if(contact.hasOwnProperty("phone2")){
+        let p2 = document.createElement('p')
+        p2.textContent = "Phone " + contact.phone2
+        detailsDiv.appendChild(p2)
+    }
+        
+    if(contact.hasOwnProperty("email")){
+        let p3 = document.createElement('p')
+        p3.textContent = "Email " + contact.email
+        detailsDiv.appendChild(p3)
+    }
+        
+    if(contact.hasOwnProperty("company")){
+        let p4 = document.createElement('p')
+        p4.textContent = "Company " + contact.company
+        detailsDiv.appendChild(p4)
+    }
+        
+    if(contact.hasOwnProperty("techStack")){
+        let p5 = document.createElement('p')
+        p5.textContent = "Tech-stach " + contact.techStack
+        detailsDiv.appendChild(p5)
+    }
+        
+    if(contact.hasOwnProperty("gender")){
+        let p6 = document.createElement('p')
+        p6.textContent = "Gender " + contact.gender
+        detailsDiv.appendChild(p6)
+    }
+    
+
+    const twitterLink = document.createElement('a')
+    twitterLink.setAttribute('href',`https://twitter.com/${contact.twitter}`)
+    twitterLink.textContent = 'Twitter ' + contact.twitter
+    detailsDiv.insertBefore(twitterLink, detailsDiv.lastElementChild)
+    return detailsDiv
+}
 //Create contact name node
 function createNameNode(contactObj){
     const nameNode = document.createElement('p')
@@ -140,7 +189,17 @@ function filterContacts(input){
         }
     });
 }
-//open Contact
+//Get contact from contact list
+function getContact(list, contName){
+    let contact = 'contact'
+    list.forEach(element => {
+        if(element.name === contName)
+            contact = element
+    });
+    return contact
+}
+
+//open Contact form
 
 function openContactForm(form){
     clearForm(form)
@@ -169,5 +228,8 @@ function saveContact(list, contactObj){
     list.push(contactObj)
     window.localStorage.setItem('contacts', JSON.stringify(list))
 }
+
+
+
 
 /*--------------------------------------------------------------------*/

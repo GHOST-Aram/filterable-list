@@ -8,19 +8,20 @@ const savebtn = document.querySelector('#save-btn')
 
 
 let contactList = []
-
 //On load
 window.addEventListener('load', () => {
     //Initialize contactList
     //Use local storage
-
     contactList = checkLocalStorage()
     displayContacts(contactList)
 
+    //elipsis btns
+    const detailsBtns = document.querySelectorAll('.details-btn')
 
     //Manage Contacts button-display view, edit, delete icons here
-    const detailsBtns = document.querySelectorAll('.details-btn')
     const managerDivs = document.querySelectorAll('.manager-icons')
+
+    //Add click event listener to elipsis btns
     detailsBtns.forEach(btn=>{
         btn.addEventListener('click', (event) =>{
             managerDivs.forEach(managerDiv=>{
@@ -33,9 +34,31 @@ window.addEventListener('load', () => {
             }
     })
     })
+
+    //Add event listener to view, edit and delete icons
+    const iconsBtns = document.querySelectorAll('.manager-icons button')
+    iconsBtns.forEach(btn =>{
+        btn.addEventListener('click', ()=>{
+            if(btn.id === 'view-btn'){
+                //Get name of the contact
+                const iconsDiv = btn.parentElement
+                const contactDiv = iconsDiv.parentElement
+                const name = contactDiv.firstElementChild.textContent
+
+                const contact = getContact(contactList, name)
+                const detailsDiv = createDetails(contact)
+                contactDiv.parentNode.insertBefore(detailsDiv, contactDiv.nextSibling)
+            }
+            // else if(event.target.id === 'delete-btn')
+            //     deleteContact()
+            // else if(event.target.id === 'edit-btn')
+            //     editContact()
+        },{once:true})
+    })
 })
 })
-//Filter
+
+//Filter aka search
 searchBox.addEventListener('input', ()=>{
     filterContacts(searchBox.value)
 })
