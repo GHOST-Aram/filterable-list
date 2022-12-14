@@ -38,19 +38,23 @@ window.addEventListener('load', () => {
     //Add event listener to view, edit and delete icons
     const iconsBtns = document.querySelectorAll('.manager-icons button')
     iconsBtns.forEach(btn =>{
-        btn.addEventListener('click', ()=>{
-            if(btn.id === 'view-btn'){
+        let focus = false
+        btn.addEventListener('focus', (e)=>{
+           
+            const iconsDiv = e.target.parentElement
+            const contactDiv = iconsDiv.parentElement
+            const name = contactDiv.firstElementChild.textContent
+            //Get contact from contact list
+            const contact = getContact(contactList, name)
+            if(e.target.id === 'view-btn'){
                 //Get name of the contact
-                const iconsDiv = btn.parentElement
-                const contactDiv = iconsDiv.parentElement
-                const name = contactDiv.firstElementChild.textContent
-
-                const contact = getContact(contactList, name)
                 const detailsDiv = createDetails(contact)
                 contactDiv.parentNode.insertBefore(detailsDiv, contactDiv.nextSibling)
             }
-            // else if(event.target.id === 'delete-btn')
-            //     deleteContact()
+            else if(e.target.id === 'delete-btn'){
+                deleteContact(contactList, contact)
+
+            }
             // else if(event.target.id === 'edit-btn')
             //     editContact()
         },{once:true})

@@ -73,6 +73,7 @@ function createDetails(contact){
     const detailsDiv = document.createElement('div')
     detailsDiv.className = 'contact-details'
     
+    
         
     if(contact.hasOwnProperty("phone1")){
         let p = document.createElement('p')
@@ -110,11 +111,13 @@ function createDetails(contact){
         detailsDiv.appendChild(p6)
     }
     
+    
 
     const twitterLink = document.createElement('a')
     twitterLink.setAttribute('href',`https://twitter.com/${contact.twitter}`)
     twitterLink.textContent = 'Twitter ' + contact.twitter
     detailsDiv.insertBefore(twitterLink, detailsDiv.lastElementChild)
+
     return detailsDiv
 }
 //Create contact name node
@@ -155,6 +158,14 @@ function creatManagerIcons(){
     }
     return btnsDiv
 }
+
+//DELETE CONTACT
+function deleteContact(contacts, contact){
+     const index = contacts.indexOf(contact)
+     if(index > -1)
+        contacts.splice(index, 1)
+    console.log(contacts)
+}
 //RENDER CONTACT LIST
 function displayContacts(contactList){
     contactList.forEach(contact=>{
@@ -191,10 +202,10 @@ function filterContacts(input){
 }
 //Get contact from contact list
 function getContact(list, contName){
-    let contact = 'contact'
+    let contact = {}
     list.forEach(element => {
         if(element.name === contName)
-            contact = element
+        contact = element
     });
     return contact
 }
